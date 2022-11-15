@@ -1,0 +1,839 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:regular,700,900&display=swap");
+
+body{
+	/* Значення за замовченням */
+	font-family: "Lato";
+	color: #424551;
+	/* font-size: 16px; */
+}
+
+.wrapper{
+	overflow: hidden;
+	min-height: 100%;
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+}
+.wrapper > main{
+	flex-grow: 1;
+}
+/* ============================ */
+
+/* Обмежуючий контейнер */
+[class*="__container"]{
+	max-width: 1260px;
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+/* ============================ */
+.page{}
+.page__main {}
+
+/* =============HEADER=============== */
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 20px 0;
+	z-index: 50;
+}
+/* Flex-контейнер */
+.header__container {
+	display: flex;
+	align-items: center;
+	gap: 60px;
+}
+
+.header__logo {}
+.header__menu {
+	 flex-grow: 1; 
+}
+.header__actions {}
+
+.menu {}
+.menu__list {
+	display: flex;
+	flex-wrap: wrap;
+	column-gap:40px;
+	row-gap: 10px;
+}
+.menu__item {}
+.menu__link {
+	font-weight: 700;
+}
+.menu__link:hover{
+	text-decoration: underline;
+}
+
+.actions-header {
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	gap: 36px;
+	flex-wrap: wrap;
+}
+.actions-header__button {}
+.actions-header__auth {
+	background: url('../img/icons/user.svg') left no-repeat;
+	padding-left: 24px;
+	font-weight: 700;
+	line-height: 1.25;
+}
+.actions-header__auth:hover span{
+	text-decoration: underline;
+}
+
+/*==========Aдаптив для HEADER========   */
+
+@media (max-width: 885px) {
+	.header__container {
+		/* переставляю флекс елементи в колонки по основній вісі*/
+		flex-direction: column;
+		row-gap: 25px;
+		/* і ставлю їх по центру */
+		justify-content: center;
+	}
+		.menu__list {
+			/* елементи списку по центру з відстаню 15px */
+			justify-content: center;
+			row-gap: 15px;
+		}
+}
+
+@media (max-width: 430px) {
+	.header__actions {
+		row-gap: 15px; 
+		align-items: center;
+		align-self: center;
+	}
+
+	.actions-header__button,
+	.actions-header__auth{
+		min-width: 100%;
+		text-align: center;
+	}
+}
+
+
+/* =========Section enjoy studing=================== */
+.main-block {
+	position: relative;
+	padding: 200px 0px 80px 0px;
+	background: linear-gradient(55.95deg, rgba(255, 64, 58, 0.2) 0%, rgba(247, 94, 5, 0.2) 100%);
+}
+.main-block__container {
+	position: relative;
+	z-index: 2;
+}
+.main-block__body {
+	margin-bottom: 190px;
+}
+.main-block__advantages {}
+.main-block__decor {}
+
+.body-main {
+	display: flex;
+}
+.body-main__content {
+	flex: 0 1 50%;
+	padding-right: 40px;
+	align-self: center;
+}
+.body-main__play {
+	font-weight: 700;
+	font-size: 14px;
+	display: inline-flex;
+	align-items: center;
+	gap: 16px;
+	position: relative;
+}
+.body-main__play:not(:last-child){
+	margin-bottom: 40px;
+}
+
+.body-main__play::after{
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 52px;
+	height: 52px;
+	border-radius: 50%;
+	background: #FF3F3A;
+	opacity: 0.12;
+	transform: scale(1.6);
+	animation:play-circle 2s infinite ease;
+}
+.body-main__play::before {
+	content: "";
+	flex: 0 0 52px;
+	width: 52px;
+	height: 52px;
+	border-radius: 50%;
+	transition: background-color 0.3s ease 0s;
+	background: #FF3F3A url('../img/icons/play.svg') center no-repeat;
+}
+
+.body-main__play:hover::after {
+	animation-play-state: paused;
+}
+.body-main__play:hover::before {
+	background-color: #dd3832;
+}
+
+@keyframes play-circle {
+	0% {
+		transform: scale(1.6);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(3);
+	}
+}
+
+.body-main__title {
+	font-weight: 900;
+	font-size: 64px;
+	line-height: 130%;
+	letter-spacing: 1px;
+	color: #1E212C;
+}
+.body-main__title:not(:last-child) {
+	margin-bottom: 60px;
+}
+.body-main__actions {
+	display: flex;
+	align-items: center;
+	gap: 24px;
+}
+.body-main__actions:not(:last-child) {
+	margin-bottom: 40px;
+}
+.body-main__button {}
+.body-main__media {
+	flex: 0 1 50%;
+}
+.body-main__image {
+	/* max-width: 602px; */
+	/* Якщо відсоток від ширини об'єкту */
+	max-width: 107.8%;
+	transform: translate(7.8%,0px);
+
+	/* Якщо конкретне значенн
+	max-width: 100%;
+	margin-right: -47px;
+	*/
+}
+
+.advantages-main {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+	justify-content: space-between;
+}
+.advantages-main__item {}
+
+.item-advantages {
+	display: flex;
+	color: #1E212C;
+	align-items: center;
+	gap: 12px;
+}
+.item-advantages__value {
+	font-weight: 900;
+	font-size: 46px;
+	line-height: 130%;
+}
+.item-advantages__text {
+	line-height: 1.5;
+}
+.advantages-main__circle {
+	border-radius: 50%;
+	flex: 0 0 8px;
+	height: 8px;
+	background: #FF3F3A;
+}
+
+.decor-main {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+.decor-main__item {
+	position: absolute;
+}
+.decor-main__item--1 {
+	background: url('../img/decor/01.svg') 0 0 no-repeat;
+	width: 96px;
+	height: 96px;
+	top: 12%;
+	left: 4.5%;
+}
+.decor-main__item--2 {
+	background: url('../img/decor/02.svg') 0 0 no-repeat;
+		width:284px;
+		height: 284px;
+		bottom: -9.2%;
+		left: -5.5%;
+}
+.decor-main__item--3 {
+	background: url('../img/decor/03.svg.svg') 0 0 no-repeat;
+		width: 88px;
+		height: 47px;
+		top: 45%;
+		left: 40%;
+}
+.decor-main__item--4 {
+	background: url('../img/decor/04.svg') 0 0 no-repeat;
+	width: 61px;
+	height: 61px;
+	bottom: 24%;
+	left: 38%;
+}
+.decor-main__item--5 {
+	background: url('../img/decor/05.svg') 0 0 no-repeat;
+	width: 96px;
+	height: 96px;
+	top: -1.5%;
+	right: 4%;
+	transform: rotate(135deg);
+}
+.decor-main__item--6 {
+	background: url('../img/main/decor/05.svg') 0 0 no-repeat;
+	width: 187px;
+	height: 137px;
+	bottom:18%;
+	right: -1.5%;
+}
+
+/* ====Адаптив  Section enjoy studing======================== */
+/* адаптивна сітка */
+@media (max-width: 1073.98px) {
+	.body-main__content {
+		padding-left: 25px;
+	}
+
+	.body-main__button {
+		margin: 0px 0px 0px 15px; 
+	}
+
+	.body-main__title {
+		font-size: 51px;
+	}
+}
+
+@media (max-width: 992px) {
+	.main-block {
+		position: relative;
+		padding: 150px 0px 80px 0px;
+	}
+
+	.main-block__body {
+		margin-bottom: 100px;
+	}
+
+	.advantages-main {
+		justify-content: space-evenly;
+	}
+
+	.item-advantages {
+		/* перевожу в колонку без відступів між колонками */
+		flex-direction: column;
+		gap: 0;
+	}
+}
+
+@media (max-width: 893.98px) {
+	.main-block__body {
+		margin-bottom: 100px;
+	}
+
+	.body-main {
+		flex-direction: column;
+		align-items: center;
+		row-gap: 70px;
+	}
+
+	.body-main__content {
+		max-width: none;
+		margin: 0;
+		padding: 15px;
+	}
+		
+	.body-main__btn{
+   padding:0px 0px 15px 80px ;
+	}
+
+	.body-main__button {
+		display: flex;
+		justify-content: center;
+		/* margin: 0 auto; */
+	}
+
+	.body-main__title {
+		margin-bottom: 60px;
+		text-align: center;
+	}
+
+	.body-main__actions {
+		justify-content: center;
+	}
+
+	.item-advantages__value {
+		font-size: 43px;
+	}
+}
+
+@media (max-width: 700px) {
+	.main-block {
+		padding: 120px 0px 80px 0px;
+	}
+
+	.body-main {
+	 row-gap: 60px; 
+	}
+
+	.main-block__body {
+		margin-bottom: 70px;
+	}
+
+	.advantages-main {
+		flex-direction: column; 
+	}
+}
+
+@media (max-width: 430px) {
+	.main-block__body {
+		padding-top:80px; 
+		margin: 70px 0px 70px 0px;
+	}
+
+	.body-main__title {
+		margin-bottom: 30px;
+		font-size: 46px;
+	}
+
+.body-main__button {
+	min-width: 100%;
+	text-align: center;
+}
+
+	.body-main__button {
+		min-width: 100%; 
+		text-align: center;
+	}
+
+	.body-main__actions {
+		flex-direction: column;
+	}
+}
+
+
+/* ----------Блок  why-block ---------- */
+.why-block {
+	position: relative;
+	/* відступ внутр. зверху */
+	padding-top: 180px;
+}
+
+.why-block__container {
+	position: relative;
+	/* ставлю більший z-index: 3; щоб декор був пыд контентом*/
+	z-index: 3;
+}
+/* Роблю флекс обьектом, батькывський елемент */
+.why-block__body {
+	display: flex;
+}
+
+.body-why__image {
+	flex: 0 1 57.3%;  /*розраховую 705/1260*100=55.9%*/
+}
+
+.body-why__image img {
+	/* ставлю картинку по всы ширину блоку для зображення */
+	max-width: 100%
+}
+
+.body-why__content {
+	 padding-left: 135px; 
+	flex: 1 0 25.1%;
+	/* вирівнюю вміст контейнера вздов поперечної вісі */
+	align-self: center; 
+}
+
+.body-why__subject {
+	/* відступ від заголовка */
+	margin-bottom: 40px;
+	color:#1E212C;
+}
+
+.subject__subtitle{
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 1px;
+	line-height: 1.5;
+
+}
+.subject__title{
+	font-weight: 900;
+	font-size: 46px;
+	line-height: 1.28;
+}
+
+.body-why__list {
+	/* відступ від писка до кнопки */
+	margin-bottom: 22px;
+}
+
+.body-why__list li {
+	position: relative;
+	padding-left: 32px;
+	line-height: 1.6;
+}
+
+/* ввішаю галочку на списку псевдоелементом */
+.body-why__list li::before {
+	content: "";
+	width: 16px;
+	height: 16px;
+	background: url('..//img/icons/check.svg') 0 0 no-repeat;
+	position: absolute;
+	top: 7px;
+	left: 0;
+}
+
+/* відступи у списку */
+.body-why__list li:not(:last-child) {
+	margin-bottom: 12px;
+}
+
+/* чіпляю декор */
+.decor-why {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+/* всі обекти  */
+.decor-why__item {
+	position: absolute;
+}
+/*ставлю в %*/
+.decor-why__item--1 {
+	background: url('..//img/decor/decor-dots.svg') 0 0 no-repeat;
+	width: 181px;
+	height: 132px;
+	top: 28%;
+	left: -2.8%;
+	transform: rotate(68.46deg);
+}
+
+.decor-why__item--2 {
+	background: url('..//img/decor/decor-circles.svg') 0 0 no-repeat;
+	width: 287px;
+	height: 287px;
+	top: 59%;
+	right: -8.6%;
+}
+
+@media (max-width: 1062px) {
+	.why-block {
+		padding: 120px 15px 0px 15px;
+	
+	}
+	.body-why__content {
+		flex: 0 0 41.5%;
+		padding-left: 55px; 
+	}
+	.body-why__subject {
+		margin-bottom: 20px;
+	}
+}
+
+@media (max-width: 966px) {
+	.why-block {
+		padding-top: 120px;
+	}
+
+	.why-block__body {
+		/* перевертаємо порядок у блоці */
+		flex-direction: column-reverse;
+		gap: 50px;
+	}
+
+	.body-why__image {
+		padding-left: 50px; 
+		text-align: center;
+}
+}
+
+@media (max-width: 430px) {
+	.why-block {
+		padding-top: 80px;
+	}
+
+	.body-why__button {
+		width: 100%;
+		text-align: center;
+	}
+}
+
+/* ---------- Блок courses-block ---------- */
+/* відступ між блоками */
+.page__courses {
+	padding: 180px 0px;
+}
+
+.courses-block__container {
+	/* меньше на 2px через бордер з 2х сторін по 1 px */
+	max-width: 1258px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+/* відступ від заголовку */
+.courses-block__column {
+	margin-bottom: 60px;
+}
+
+.subject__row {
+/* роблю блок з заголовками флекс модуль */
+	display: flex;
+	/* флекс елементи стають рівномірно по всій основній осі  */
+	justify-content: space-between;
+	/*Вирівнюю по центру вздовж поперечної вісі*/
+	align-items: center;
+}
+
+.courses-block__button {
+	/* прибиваю кнопку до краю обмежуючого контейнера */
+	 margin-left: 10px;
+}
+
+/* Флексим */
+.courses-block__row {
+display: flex;
+/* перенесення флекс-елементів при жжиманні */
+flex-wrap: wrap;
+/* відступ 30px */
+	gap: 30px;
+}
+
+.courses-block__teacher {
+	/* розділяю на два однокові блоки */
+	flex-basis: calc((100% - 30px) / 2);
+}
+
+/* Колонки контенту */
+.teacher__column {
+	/* ширина за макетом */
+	/* max-width: 600px; */
+	/* ставлю висоту 100% */
+	min-height: 100%;
+	background: #FFFFFF;
+	border: 1px solid #E5E8ED;
+	box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08), 0px 30px 24px -10px rgba(154, 156, 165, 0.05), 0px 12px 10px -6px rgba(154, 156, 165, 0.04), 0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+	border-radius: 4px;
+/* роблю флекс обьектом */
+	display: flex;
+}
+
+.teacher__image-info {
+	/* flex: 0 0 35.66%; */
+	/* ширина за макетом */
+	flex: 0 0 214px;
+}
+
+/* Адаптив зображень з уроку */
+.teacher__image {
+	position: relative; 
+/* формуємо  висоту батьківського елементу відступом знизу 214/214*100%*/
+	padding-bottom: 100%; 
+}
+
+.teacher__image img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	/* беремо % від батьківського елементу */
+	height: 100%;
+   object-fit: cover;
+}
+
+/* колонка з контейнтом */
+.teacher__features {
+	flex: 1 1 auto;
+	padding: 32px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	align-items: flex-start;
+}
+
+/* маркеровка  */
+.teacher__post {
+	display: inline-block;
+	font-size: 14px;
+	line-height: 1.5;
+	color: #FFFFFF;
+	padding: 1px 8px;
+	border-radius: 4px;
+}
+
+/* модифікатор зелена плашка */
+.teacher__post--green {
+	background: #03CEA4;
+}
+
+.teacher__post--blue {
+background: #5A87FC;
+}
+
+.teacher__post--orange {
+	background: #F89828;
+}
+
+.teacher__post--pink {
+	background: #F52F6E;
+}
+
+.teacher__training {
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 1.5;
+	color: #1E212C;
+}
+
+.teacher__info {
+	font-size: 18px;
+	line-height: 1.5;
+
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.teacher__price {
+	font-weight: 700;
+	color: #FF4242;
+	position: relative;
+}
+
+/* маленька перегородка між вартістю імям */
+.teacher__price::after {
+	content: "|";
+	width: 1px;
+	height: 15px;
+	color: #94979f;
+	position: absolute;
+	top: -2px;
+	left: 50px;
+}
+
+.teacher__name {
+	padding-left: 16px;
+}
+/*==================Адаптив======================= */
+@media (max-width: 1077px) {
+	.teacher__features {
+		padding:0px 25px;
+		justify-content: center;
+	}
+	.courses-block__row {
+		gap: 20px;
+	}
+	.teacher__name {
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 1049px) {
+	.page__courses {
+		padding: 140px 25px;
+	}
+
+	.teacher__column {
+		flex-direction: column;
+	}
+
+	.courses-block__row {
+		gap: 30px;
+	}
+
+	.teacher__image-info {
+		background: #ffcf2d; 
+	}
+
+	.teacher__image {
+		padding-bottom: 38.25%; 
+		min-height: 214px;
+	}
+
+	.teacher__image img {
+		object-fit: contain;
+	}
+}
+
+@media (max-width: 922px) {
+	.teacher__training {
+		font-size: 18px;
+	}
+}
+
+@media (max-width: 700px) {
+	.page__courses {
+		padding: 120px 0px;
+	}
+
+	.courses-block__column {
+		margin-bottom: 40px;
+	}
+
+	.courses-block__teacher {
+		flex: 0 1 100%;
+	}
+
+	.teacher__column {
+		flex-direction: row;
+	}
+}
+
+@media (max-width: 656px) {
+	.subject__row {
+		flex-direction: column;
+		row-gap: 25px;
+	}
+}
+
+@media (max-width: 505px) {
+	.page__courses {
+		padding: 100px 0px;
+	}
+
+	.teacher__column {
+		flex-direction: column;
+	}
+}
+
+@media (max-width: 430px) {
+	.page__courses {
+		padding: 80px 0px;
+	}
+
+	.courses-block__button {
+		min-width: 100%;
+		text-align: center;
+	}
+
+	.teacher__image-info{
+		margin-bottom: 10px;
+	}
+}
